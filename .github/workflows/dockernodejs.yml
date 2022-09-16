@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-name: CI-CD
+name: DokerHub Image
 
 # Controls when the action will run. 
 on:
@@ -63,15 +63,15 @@ jobs:
         - name: Login to DockerHub
           uses: docker/login-action@v1
           with:
-            username: eswaribala
-            password: dckr_pat_K26tyi28FVlOC3Hz6PXSCuAGjZc
+            username: ${{secrets.DOCKERHUB_USERNAME}}
+            password: ${{secrets.DOCKERHUB_TOKEN}}
       
         
           
         - name: Run the image in a container
           uses: addnab/docker-run-action@v3
           with:
-            image: eswaribala/intelgitrepo2022:pdfappv1
+            image: ${{secrets.DOCKERHUB_USERNAME}}/intelgitrepo2022:pdfappv1
             run: |
               echo "runing the docker image"
               echo "Testing the nodejs  app endpoints"
