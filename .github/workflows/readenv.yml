@@ -1,4 +1,4 @@
-name: Hi Intel
+name: Env Intel
 on: push
 env:
   uername: Mona
